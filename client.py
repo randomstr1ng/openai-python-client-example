@@ -30,6 +30,8 @@ client = OpenAI(
 )
 
 print(banner)
+class ExitCmdException(Exception):
+    pass
 
 class prompt(cmd.Cmd):
     prompt = '>>> '
@@ -43,6 +45,17 @@ class prompt(cmd.Cmd):
                 ]
             )
         print(response.choices[0].message.content)
+    def do_quit(self, args):
+        raise ExitCmdException()
+        return True
+    def do_help(self, arg: str) -> bool | None:
+        return super().do_help(arg)
+    def do_exit(self, args):
+        raise ExitCmdException()
+        return True
 
 if __name__ == '__main__':
-    prompt().cmdloop()
+    try:
+        prompt().cmdloop()
+    except ExitCmdException as e:
+        print('Good Bye')
