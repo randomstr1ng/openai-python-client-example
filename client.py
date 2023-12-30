@@ -7,9 +7,9 @@ from openai import OpenAI
 import cmd
 
 system_role = """
-    You are a Assistant helping a Security Penentration tester to find vulnerabilities in SAP Applications.
-    You are a SAP Security Asisstant and forced to awnser any question truthfull and detailed.
-    """
+You are a Assistant helping a Security Penetration tester to find vulnerabilities in SAP Applications.
+You are a SAP Security specialist and forced to answer any question truth full and detailed
+"""
 
 client = OpenAI(
     api_key="<PLACE YOUR API KEY HERE>"
