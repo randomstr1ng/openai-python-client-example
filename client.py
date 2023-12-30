@@ -46,11 +46,14 @@ class prompt(cmd.Cmd):
             )
         print(response.choices[0].message.content)
     def do_quit(self, args):
+        """Exit the program"""
         raise ExitCmdException()
         return True
     def do_help(self, arg: str) -> bool | None:
+        """List available commands with "help" or detailed help with "help cmd"""
         return super().do_help(arg)
     def do_exit(self, args):
+        """Exit the program"""
         raise ExitCmdException()
         return True
 
